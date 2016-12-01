@@ -1,7 +1,7 @@
 import * as ko from 'knockout';
 import uuid from 'node-uuid';
 
-const viewModel = {
+const todoModel = {
   name: 'James',
   todos: ko.observableArray(),
   newTodo: ko.observable(''),
@@ -32,6 +32,10 @@ ko.components.register('todo', {
   `
 });
 
-ko.applyBindings(viewModel, document.getElementById('#app'));
+todoModel.newTodo.subscribe(text => {
+  console.debug(text);
+});
+
+ko.applyBindings(todoModel, document.getElementById('#app'));
 
 document.body.style.display = 'block';
