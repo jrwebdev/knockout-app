@@ -4,17 +4,7 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
-    <body style="display: none">
-      <div id="app">
-        <h1>Hello <span data-bind="text: name"></span>!</h1>
-        <form data-bind="submit: addTodo">
-          <label for="todo">New Todo</label>
-          <input id="todo" data-bind="textInput: newTodo" />
-          <button data-bind="enable: newTodo().trim()">Add</button>
-        </form>
-        <ul data-bind="foreach: todos">
-          <todo params="todo: $data, onRemove: $parent.removeTodo.bind($parent)"></todo>
-        </ul>
-      </div>
+    <body>
+      <div id="app"></div>
     </body>
 </html>
