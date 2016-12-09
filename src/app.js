@@ -1,41 +1,6 @@
-import * as ko from 'knockout';
-import uuid from 'node-uuid';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-const todoModel = {
-  name: 'James',
-  todos: ko.observableArray(),
-  newTodo: ko.observable(''),
-  addTodo() {
-    const todo = {
-      id: uuid.v4(),
-      text: this.newTodo()
-    };
-    this.todos.push(todo);
-    this.newTodo('');
-  },
-  removeTodo(id) {
-    this.todos.remove(todo => todo.id === id);
-  }
-};
+import TodoList from './components/todo-list/todo-list';
 
-ko.components.register('todo', {
-  viewModel({todo, onRemove}) {
-    this.id = todo.id;
-    this.text = todo.text;
-    this.removeTodo = onRemove;
-  },
-  template: `
-    <li>
-      <span data-bind="text: text"></span>
-      <a href="#" data-bind="click: () => removeTodo(id)">Remove</a>
-    </li>
-  `
-});
-
-todoModel.newTodo.subscribe(text => {
-  console.debug(text);
-});
-
-ko.applyBindings(todoModel, document.getElementById('#app'));
-
-document.body.style.display = 'block';
+ReactDOM.render(<TodoList />, document.getElementById('app'));
