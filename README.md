@@ -4,10 +4,10 @@ Proof of concept for using Knockout components within React.
 
 The app has 3 main parts:
 
-* `TodoList` (`components/todo-list`)
+`TodoList` (`components/todo-list`)
 A React component which renders one or more `TodoItem`s
 
-* `TodoItem` (`components/todo-list`)
+`TodoItem` (`components/todo-list`)
 A Knockout component which is exported as a React component via use of `koComponent()`
 
 `koComponent` (`util/ko-component`)
